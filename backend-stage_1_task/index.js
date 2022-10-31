@@ -1,13 +1,9 @@
 const app = require('express')();
+const data = require('./data.js')
 const PORT = process.env.PORT || 8080;
 
-app.get('/emmanuel-julius', (req, res) => {
-        res.status(200).send({
-                slackUsername: "Emmanuel Julius",
-                backend: true,
-                age: 20,
-                bio: "An aspiring full-stack developer with a curious personality"
-        })
+app.get('/', (req, res) => {
+        res.status(200).json(data)
 });
 
-app.listen(PORT)
+app.listen(PORT, () => console.log('API running live'))
